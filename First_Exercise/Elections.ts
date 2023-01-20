@@ -3,7 +3,7 @@
  *  Project: First Exercise
  *
  *  Author: Seth Gage
- *  Created on: Jan 19, 2023
+ *  Created on: Jan 17, 2023
  */
 
 type Candidate = {
