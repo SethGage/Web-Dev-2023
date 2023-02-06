@@ -1,16 +1,12 @@
-import express, { Express, Request, Response } from 'express';
-import ip from 'ip';
+import express, { Express } from 'express';
+import StatesController from './controllers/StateController';
 
 const app: Express = express();
+app.use(express.json());
+
 const PORT = 8191;
 
-function getRoot(req: Request, res: Response): void {
-  res.send('Hello, from Seth!');
-}
+app.get('/capital', StatesController.getCapital);
+app.post('/capital', StatesController.addCapital);
 
-function handleListenEvent(): void {
-  console.log(`Listening on port http://${ip.address()}:${PORT}`);
-}
-
-app.get('/', getRoot);
-app.listen(PORT, handleListenEvent);
+app.listen(PORT, () => console.log(`Listening on port http://127.0.0.1:${PORT}`));
